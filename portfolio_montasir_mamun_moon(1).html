@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Montasir Mamun Moon | Portfolio</title>
+  <style>
+    :root{
+      --bg:#0b1220; --card:#101b33; --text:#eaf0ff; --muted:#b8c3e6;
+      --accent:#7aa2ff; --accent2:#62e6c9; --line:rgba(255,255,255,.10);
+      --shadow: 0 18px 45px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial; background: radial-gradient(1200px 900px at 15% 15%, rgba(122,162,255,.25), transparent 60%), radial-gradient(900px 700px at 85% 20%, rgba(98,230,201,.16), transparent 55%), var(--bg); color:var(--text);}
+    a{color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 70px}
+    .nav{display:flex;gap:14px;align-items:center;justify-content:space-between;margin-bottom:22px}
+    .brand{display:flex;gap:10px;align-items:center}
+    .dot{width:12px;height:12px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+    .links{display:flex;gap:10px;flex-wrap:wrap}
+    .chip{padding:9px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);text-decoration:none;font-size:13px;color:var(--muted)}
+    .chip:hover{border-color:rgba(255,255,255,.22);color:var(--text)}
+
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:stretch}
+    @media (max-width: 880px){.hero{grid-template-columns:1fr}}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .heroMain{padding:26px 24px}
+    h1{margin:0 0 10px;font-size:38px;letter-spacing:-.5px}
+    .title{font-size:15px;color:var(--muted);line-height:1.5}
+    .badges{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 18px}
+    .badge{font-size:12px;padding:7px 10px;border-radius:999px;background:rgba(122,162,255,.14);border:1px solid rgba(122,162,255,.25)}
+    .badge.alt{background:rgba(98,230,201,.12);border-color:rgba(98,230,201,.25)}
+    .ctaRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .btn{display:inline-flex;gap:8px;align-items:center;padding:11px 14px;border-radius:12px;text-decoration:none;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05)}
+    .btn.primary{border-color:rgba(122,162,255,.35);background:linear-gradient(135deg, rgba(122,162,255,.25), rgba(98,230,201,.12))}
+    .btn:hover{border-color:rgba(255,255,255,.22)}
+
+    .heroSide{padding:22px 20px}
+    .kpiGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .kpi{padding:14px;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.18)}
+    .kpi b{display:block;font-size:22px;margin-bottom:6px}
+    .kpi span{color:var(--muted);font-size:12.5px;line-height:1.35}
+
+    .section{margin-top:18px}
+    .section h2{margin:0 0 10px;font-size:18px;letter-spacing:.2px}
+
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+    .col4{grid-column:span 4}
+    .col6{grid-column:span 6}
+    .col12{grid-column:span 12}
+    @media (max-width: 900px){.col4,.col6{grid-column:span 12}}
+
+    .box{padding:18px 18px;border-radius:var(--radius);border:1px solid var(--line);background:rgba(255,255,255,.03)}
+    .box h3{margin:0 0 8px;font-size:15px}
+    .box p{margin:0;color:var(--muted);line-height:1.55;font-size:13.8px}
+    ul{margin:10px 0 0 18px;color:var(--muted);line-height:1.55;font-size:13.8px}
+
+    .timeline{display:grid;gap:12px}
+    .item{padding:16px 16px;border-radius:16px;border:1px solid var(--line);background:rgba(0,0,0,.18)}
+    .itemTop{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+    .role{font-weight:700}
+    .meta{color:var(--muted);font-size:12.5px}
+    .item p{margin:0;color:var(--muted);font-size:13.8px;line-height:1.55}
+
+    .pillRow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .pill{font-size:12px;padding:7px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--muted)}
+
+    footer{margin-top:26px;color:var(--muted);font-size:12.5px;opacity:.9}
+  
+    html{scroll-behavior:smooth}
+    /* Catchy background blobs */
+    .bg-blobs{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
+    .blob{position:absolute;filter:blur(40px);opacity:.38;transform:translate3d(0,0,0)}
+    .blob.one{width:520px;height:520px;left:-160px;top:-120px;background:radial-gradient(circle at 30% 30%, rgba(122,162,255,.95), rgba(122,162,255,0) 60%);animation:float1 10s ease-in-out infinite}
+    .blob.two{width:520px;height:520px;right:-180px;top:-140px;background:radial-gradient(circle at 60% 40%, rgba(98,230,201,.85), rgba(98,230,201,0) 60%);animation:float2 12s ease-in-out infinite}
+    .blob.three{width:620px;height:620px;left:20%;bottom:-260px;background:radial-gradient(circle at 50% 50%, rgba(255,255,255,.14), rgba(255,255,255,0) 60%);animation:float3 14s ease-in-out infinite}
+    @keyframes float1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(55px,35px) scale(1.05)}}
+    @keyframes float2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-50px,45px) scale(1.06)}}
+    @keyframes float3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(0,-35px) scale(1.03)}}
+
+    /* Gradient border for cards */
+    .card{position:relative;overflow:hidden}
+    .card::before{
+      content:"";
+      position:absolute;inset:-2px;border-radius:calc(var(--radius) + 2px);
+      background:linear-gradient(135deg, rgba(122,162,255,.45), rgba(98,230,201,.30), rgba(255,255,255,.10));
+      opacity:.55;z-index:-1
+    }
+    .card::after{
+      content:"";
+      position:absolute;inset:1px;border-radius:calc(var(--radius) - 1px);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      z-index:-1
+    }
+
+    /* Hover polish */
+    .box, .item, .kpi{transition:transform .18s ease, border-color .18s ease, background .18s ease}
+    .box:hover, .item:hover, .kpi:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.22)}
+    .chip{transition:transform .18s ease, border-color .18s ease, color .18s ease}
+    .chip:hover{transform:translateY(-1px)}
+    .btn{transition:transform .18s ease, border-color .18s ease}
+    .btn:hover{transform:translateY(-1px)}
+    /* Slight highlight underline under section headings */
+    .section h2{display:inline-block;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,.12)}
+    /* Contact links */
+    #contact a{color:var(--text);text-decoration:none;border-bottom:1px dashed rgba(255,255,255,.25)}
+    #contact a:hover{border-bottom-color:rgba(255,255,255,.5)}
+
+  </style>
+</head>
+<body>
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob one"></div>
+    <div class="blob two"></div>
+    <div class="blob three"></div>
+  </div>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <div class="dot"></div>
+        <div>
+          <div style="font-weight:700;line-height:1">Montasir Mamun Moon</div>
+          <div style="color:var(--muted);font-size:12.5px;margin-top:3px">Corporate Administration • Operations Support • Coordination</div>
+        </div>
+      </div>
+      <div class="links">
+        <a class="chip" href="#about">About</a>
+        <a class="chip" href="#highlights">Highlights</a>
+        <a class="chip" href="#experience">Experience</a>
+        <a class="chip" href="#skills">Skills</a>
+        <a class="chip" href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <section class="card heroMain" id="about">
+        <h1>Administrative & operations support you can rely on.</h1>
+        <div class="title">
+          Public Administration graduate with experience coordinating teams, maintaining quality/compliance standards, and delivering clear documentation and reports for decision‑making.
+        </div>
+        <div class="badges">
+          <span class="badge">Team coordination</span>
+          <span class="badge alt">Compliance & quality</span>
+          <span class="badge">Documentation & reporting</span>
+          <span class="badge alt">MS Office (Excel/Word/PowerPoint)</span>
+        </div>
+        <div style="color:var(--muted);line-height:1.6;font-size:14px">
+          I’m comfortable managing multiple priorities—people, timelines, and deliverables. I enjoy building simple systems that keep work organized: clean files, clear communication, and consistent follow‑up.
+        </div>
+        <div class="ctaRow">
+          <a class="btn primary" href="#contact">Contact</a>
+          <a class="btn" href="#experience">View Experience</a>
+        </div>
+      </section>
+
+      <aside class="card heroSide" aria-label="Key highlights">
+        <div class="kpiGrid">
+          <div class="kpi"><b>35</b><span>Volunteers coordinated for data collection and outreach</span></div>
+          <div class="kpi"><b>7</b><span>FGDs supported in fieldwork (plus KIIs/IDIs)</span></div>
+          <div class="kpi"><b>2,295+</b><span>Data points collected using KoBo Toolbox</span></div>
+          <div class="kpi"><b>IELTS 7.0</b><span>Professional English proficiency</span></div>
+        </div>
+        <div class="pillRow" style="margin-top:14px">
+          <span class="pill">KoBo Toolbox</span>
+          <span class="pill">Excel</span>
+          <span class="pill">SPSS</span>
+          <span class="pill">NVivo</span>
+        </div>
+      </aside>
+    </div>
+
+    <div class="section" id="highlights">
+      <h2>What I bring</h2>
+      <div class="grid">
+        <div class="box col4">
+          <h3>Coordination & follow‑up</h3>
+          <p>Keep tasks moving through clear communication, stakeholder alignment, and reliable follow‑through.</p>
+        </div>
+        <div class="box col4">
+          <h3>Documentation & reporting</h3>
+          <p>Maintain structured records, prepare clean summaries, and produce decision‑friendly reports.</p>
+        </div>
+        <div class="box col4">
+          <h3>Quality & compliance mindset</h3>
+          <p>Work with standards and ethics requirements; focus on accuracy, consistency, and process discipline.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="experience">
+      <h2>Experience</h2>
+      <div class="timeline">
+        <div class="item">
+          <div class="itemTop">
+            <div class="role">Research Assistant – Research & Evaluation (Project‑based)</div>
+            <div class="meta">Jul 2025 – Oct 2025</div>
+          </div>
+          <p>Supervised remote field teams, supported data workflows, and maintained ethical and quality standards while preparing clean datasets and reports.</p>
+        </div>
+        <div class="item">
+          <div class="itemTop">
+            <div class="role">Research Assistant (USAID Project, Chemonics)</div>
+            <div class="meta">Jan 2025 – Feb 2025</div>
+          </div>
+          <p>Supported qualitative fieldwork, ensured documentation accuracy (transcription/translation), and drafted field reports aligned with project goals.</p>
+        </div>
+        <div class="item">
+          <div class="itemTop">
+            <div class="role">Volunteer Coordinator (UNDP Youth Co:Lab)</div>
+            <div class="meta">Nov 2023 – Jan 2024</div>
+          </div>
+          <p>Coordinated a volunteer team for outreach and data collection, ensured consistency of responses, and supported communication between volunteers and researchers.</p>
+        </div>
+        <div class="item">
+          <div class="itemTop">
+            <div class="role">Data Enumerator (University of Dhaka Project)</div>
+            <div class="meta">Sep 2023 – Oct 2024</div>
+          </div>
+          <p>Collected survey data using KoBo Toolbox; maintained accuracy, completeness, and field documentation.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="skills">
+      <h2>Skills</h2>
+      <div class="grid">
+        <div class="box col6">
+          <h3>Administrative & operations</h3>
+          <ul>
+            <li>Office administration & record keeping</li>
+            <li>Scheduling, coordination, and follow‑up</li>
+            <li>Report writing & documentation control</li>
+            <li>Stakeholder communication</li>
+          </ul>
+        </div>
+        <div class="box col6">
+          <h3>Tools</h3>
+          <ul>
+            <li>Microsoft Office (Excel, Word, PowerPoint)</li>
+            <li>KoBo Toolbox (data collection workflows)</li>
+            <li>SPSS / NVivo (basic analysis exposure)</li>
+            <li>Digital communication & documentation tools</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="contact">
+      <h2>Contact</h2>
+      <div class="grid">
+        <div class="box col12">
+          <p>✉️ <b>Email:</b> <a href="mailto:montasirmamun-2018124705@dpa.du.ac.bd">montasirmamun-2018124705@dpa.du.ac.bd</a> &nbsp; | &nbsp; 📞 <b>Phone:</b> <a href="tel:01882722075">01882722075</a> &nbsp; | &nbsp; 🔗 <b>LinkedIn:</b> <a href="https://linkedin.com/in/montasir-mamun-moon-899075202" target="_blank" rel="noopener">montasir-mamun-moon</a></p>
+                  </div>
+      </div>
+    </div>
+
+    <footer>
+      © <span id="y"></span> Montasir Mamun Moon • Built as a single‑page portfolio
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
